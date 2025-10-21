@@ -10,8 +10,8 @@ export default function Navbar({ theme, toggleTheme }) {
           <img
             src="/logo-dendroclimate.png"
             alt="Dendroclimate"
-            width={160}
-            height={40}             // reserves space; avoids layout shift
+            width={28}
+            height={28}             // reserves space; avoids layout shift
             className="brand-logo"
           />
           <span className="brand-name">Dendroclimate</span>

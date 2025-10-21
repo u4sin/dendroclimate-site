@@ -1,6 +1,8 @@
 // Optional: remove if you don’t want maps
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+//import 'leaflet/dist/leaflet.css';
+import '../leaflet-icon-fix';   // no exports; it patches L.Icon.Default
+
 
 export default function WorldMap({ points = [] }) {
   return (
