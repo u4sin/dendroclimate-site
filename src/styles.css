@@ -704,3 +704,29 @@ body {
 
 
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.brand-logo {
+  display: block;
+  height: 64px;
+  width: auto;
+}
+
+/* Hide the text on very small screens if you want */
+@media (max-width: 520px) {
+  .brand-name { display: none; }
+}
+
+/* If your logo is black and you want it to appear light in dark mode,
+   either use a white SVG/PNG for dark mode or apply a filter: */
+.dark-theme .brand-logo {
+  /* comment this out if you add a white version instead */
+  filter: invert(1) brightness(1.1);
+}
