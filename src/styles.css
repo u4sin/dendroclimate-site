@@ -720,9 +720,14 @@ body {
 } */
 
 /* Hide the text on very small screens if you want */
-@media (max-width: 520px) {
-  .brand-name { display: none; }
+.brand-link{ display:inline-flex; align-items:center; gap:.6rem; }
+.brand-name{
+  display:inline-block;
+  white-space:nowrap;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem); /* scales down on small screens */
+  overflow:hidden; text-overflow:ellipsis;
 }
+
 
 /* If your logo is black and you want it to appear light in dark mode,
    either use a white SVG/PNG for dark mode or apply a filter: */
@@ -753,18 +758,49 @@ img, video, canvas, svg { max-width: 100%; height: auto; }
 /* Code/table overflow */
 pre, code, table { max-width: 100%; overflow-x: auto; }
 
-/* Cards & galleries: uniform, responsive */
-.cards-grid, .gallery{
-  display: grid;
+/* Base gallery */
+.gallery{
+   display: grid;
   gap: var(--space);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 1fr;               /* mobile: one card per row */
 }
-.gallery .image, .cards-grid img{
-  width: 100%;
-  aspect-ratio: 4 / 3;   /* adjust if you prefer */
+
+/* Optional: tidy up the figure */
+.gallery .image-card{
+  display: flex;
+  flex-direction: column;
+  margin: 0;               /* remove default figure margins */
+}
+
+/* Images never squish */
+.gallery .image{
+ width: 100%;
+  height: auto !important;      /* key: don't stretch; let aspect-ratio define height */
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 12px;
+  display: block;
 }
+
+/* Captions */
+.gallery .caption{
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: var(--muted);
+  /* optional: keep captions to one or two lines */
+  /* overflow: hidden; text-overflow: ellipsis; white-space: nowrap; */
+}
+
+.grid .span-feature{ grid-column: span 6; }
+
+/* Phones: force ONE tile per row when using `one-at-a-time` */
+@media (max-width: 700px){
+   .grid .span-feature{ grid-column: span 12; }
+}
+
+
 
 /* Headings scale */
 h1 { font-size: clamp(1.6rem, 2.2vw + 1rem, 2.6rem); }
@@ -773,36 +809,73 @@ h2 { font-size: clamp(1.3rem, 1.6vw + 0.9rem, 2rem); }
 /* Logo sizing */
 .brand-link { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
 .brand-logo { height: 40px; width:auto; display:block; }
-@media (max-width:520px){ .brand-name{ display:none; } }
 
 /* Desktop nav */
 .navbar .nav-links { display:flex; gap: 1rem; align-items:center; }
 .nav-toggle { display:none; }
 
-/* Mobile nav */
+/* Mobile: disable navbar filter so fixed drawer anchors to the viewport */
 @media (max-width: 768px){
-  .nav-toggle { display:block; font-size:1.25rem; background:none; border:0; }
-  .navbar .nav-links{
-    position: fixed; top: 60px; right: 0; bottom: 0;
-    width: min(80vw, 320px);
-    background: var(--surface, #fff);
-    box-shadow: -8px 0 24px rgba(0,0,0,.08);
-    padding: 16px;
-    flex-direction: column; align-items: flex-start; gap: 12px;
-    transform: translateX(100%); transition: transform .2s ease;
+  .navbar{ backdrop-filter: none; }
+}
+
+/* Mobile drawer (final) */
+@media (max-width: 768px){
+  .nav-toggle{
+    display:block; font-size:1.25rem; background:none; border:0; line-height:1;
+    position: relative; z-index: 5003; /* always clickable */
   }
+
+  .navbar .nav-links{
+    position: fixed;
+    top: 64px; right: 0; bottom: 0;
+    width: min(84vw, 340px);
+    background: var(--bg);
+    box-shadow: -8px 0 24px rgba(0,0,0,.14);
+    border-left: 1px solid var(--border);
+
+    display:flex; flex-direction:column; align-items:flex-start; gap:12px;
+    padding:16px;
+    overflow-y:auto; -webkit-overflow-scrolling:touch;
+
+    transform: translateX(100%);
+    transition: transform .25s ease;
+
+    z-index: 5001; /* above overlay */
+  }
+
   .navbar .nav-links.open{ transform: translateX(0); }
 }
 
-/* Prevent body scroll when menu is open */
-.no-scroll { overflow: hidden; }
-
-/* Overlay behind the slide-out menu on mobile */
+/* Overlay behind the drawer */
 .nav-overlay{
   position: fixed; inset: 0;
-  background: rgba(0,0,0,.35);
-  border: 0; padding: 0; margin: 0;
-  z-index: 49; /* just under the navbar */
+  background: rgba(0,0,0,.40);
+  z-index: 5000; /* below drawer */
 }
 
-/* (You already have) .nav-toggle, .navbar .nav-links, and .navbar .nav-links.open rules */
+/* Optional: make the panel a bit wider on larger phones */
+@media (min-width: 420px) and (max-width: 768px){
+  .navbar .nav-links{ width: min(78vw, 200px); }
+}
+
+@media (min-width: 900px){
+  .gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));  /* desktop: 3 per row */
+  }
+}
+
+/* Map sits below the menu */
+.map-wrap { position: relative; z-index: 0; }
+.leaflet-map { position: relative; z-index: 0; }
+
+/* Lower Leaflet panes/controls just a bit (still above tiles) */
+.leaflet-map .leaflet-pane         { z-index: 200; }
+.leaflet-map .leaflet-tile-pane    { z-index: 210; }
+.leaflet-map .leaflet-overlay-pane { z-index: 220; }
+.leaflet-map .leaflet-shadow-pane  { z-index: 230; }
+.leaflet-map .leaflet-marker-pane  { z-index: 240; }
+.leaflet-map .leaflet-tooltip-pane { z-index: 250; }
+.leaflet-map .leaflet-popup-pane   { z-index: 260; }
+.leaflet-map .leaflet-top,
+.leaflet-map .leaflet-bottom       { z-index: 270; }

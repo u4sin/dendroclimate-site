@@ -28,7 +28,7 @@ export default function Home() {
               Our recent work indicates that 2022 was the driest pre-monsoon season in the last 400 years, underscoring the increasing severity of climate extremes in the Himalayas. Alongside fieldwork, I use modern climate models to test predictions of droughts and extremes, bridging the past and the future of Himalayan hydroclimate.">
         <div className="grid">
           {highlights.map(h => (
-            <div key={h.id} className="card-home" style={{ gridColumn: 'span 6' }}>
+            <div key={h.id} className="card-home span-feature">
               <Card img={h.img} title={h.title} desc={h.desc} />
             </div>
           ))}
