@@ -915,6 +915,8 @@ h2 { font-size: clamp(1.3rem, 1.6vw + 0.9rem, 2rem); }
     text-align: left;             /* or center if you prefer */
   }
   .about-avatar{
-    justify-self: start;          /* change to center for centered avatar */
+    width: clamp(120px, 40vw, 160px);  /* bigger on phones */
+    justify-self: center;              /* center the image */
+    margin-bottom: 8px;     
   }
 }
