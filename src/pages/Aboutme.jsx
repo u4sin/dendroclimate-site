@@ -9,7 +9,14 @@ export default function Aboutme() {
       title="Pushpendra Pandey"
       lead="PhD Candidate, Birbal Sahni Institute of Palaeosciences (BSIP), Lucknow, India"
     >
-      {/* Research description */}
+       <div className="about-header">
+        <img
+          src="/images/profile.jpeg"
+          alt="Pushpendra Pandey"
+          className="about-avatar"
+          loading="eager"
+        />
+        <div className="about-header-text">
       <p className="about-text">
         My research integrates dendroclimatology, climate modeling, and atmospheric circulation studies
         to understand hydroclimate variability in the Western Himalayas. I combine tree-ring data with
@@ -17,6 +24,8 @@ export default function Aboutme() {
         and investigate the dynamics of Western Disturbances. These insights help assess how large-scale
         teleconnections and future warming will impact regional water security.
       </p>
+      </div>
+      </div>
 
       {/* Collaborators */}
       <h3 className="collab-heading">Collaborators</h3>

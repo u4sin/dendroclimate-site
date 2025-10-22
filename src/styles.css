@@ -879,3 +879,42 @@ h2 { font-size: clamp(1.3rem, 1.6vw + 0.9rem, 2rem); }
 .leaflet-map .leaflet-popup-pane   { z-index: 260; }
 .leaflet-map .leaflet-top,
 .leaflet-map .leaflet-bottom       { z-index: 270; }
+
+
+/* About header with circular avatar */
+.about-header{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(12px, 3vw, 20px);
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.about-avatar{
+  width: clamp(84px, 12vw, 200px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  /* sharpen edges if your image is large */
+  image-rendering: auto;
+}
+
+.dark-theme .about-avatar{
+  border-color: #2a3142;          /* subtle dark border */
+  box-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+
+.about-header-text{ min-width: 0; }
+
+/* Stack on small screens */
+@media (max-width: 640px){
+  .about-header{
+    grid-template-columns: 1fr;
+    text-align: left;             /* or center if you prefer */
+  }
+  .about-avatar{
+    justify-self: start;          /* change to center for centered avatar */
+  }
+}
