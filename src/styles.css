@@ -325,7 +325,7 @@ body {
   border: 1px solid #202533;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  cursor: pointer;
+  cursor: default;
 }
 
 .pub-card:hover {
@@ -351,6 +351,11 @@ body {
   font-size: 13px;
   color: var(--muted);
 }
+
+.pub-title-link {
+  cursor: pointer;   /* ✅ only clickable element */
+}
+
 
 /* Blog.jsx*/
 
