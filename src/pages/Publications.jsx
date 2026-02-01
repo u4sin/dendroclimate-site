@@ -62,21 +62,23 @@ export default function Publications() {
       <div className="pub-list">
         {publications.peerReviewed.map((pub, idx) => (
           <div key={idx} className="pub-card hover-card">
-            <p className="pub-title">{pub.title}</p>
+           <p className="pub-title">
+            {pub.url ? (
+              <a
+                href={pub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pub-title-link"
+              >
+                {pub.title}
+              </a>
+            ) : (
+             pub.title)}
+          </p>
             <p className="pub-authors">{pub.authors}</p>
             <p className="pub-journal">
               {pub.journal} {pub.year && `, ${pub.year}`}
             </p>
-             {pub.url && (
-        <a
-          href={pub.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pub-link"
-        >
-          View publication →
-        </a>
-      )}
           </div>
         ))}
       </div>
