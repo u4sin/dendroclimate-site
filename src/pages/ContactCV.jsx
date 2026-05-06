@@ -54,7 +54,7 @@ export default function ContactCV() {
             <h4>Curriculum Vitae</h4>
             <p>
               <a
-                href="./docs/cv.pdf"
+                href="/docs/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
