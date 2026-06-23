@@ -10,7 +10,7 @@ const publications = {
       url: "https://www.sciencedirect.com/science/article/abs/pii/S0048969725029572"
     },
      {
-      title: "ntegrated dendrochemical analyses for reconstructing historical trace elemental pollution in Asia: a systematic review",
+      title: "Integrated dendrochemical analyses for reconstructing historical trace elemental pollution in Asia: a systematic review",
       authors: "Balraju, W., Shekhar, M., Pandey, P., Lal, D., Dhyani, R., Bhattacharyya, A., Sharma, A.",
       journal: "Physics and Chemistry of the Earth, Parts A/B/C",
       year: 2026,
@@ -59,7 +59,7 @@ const publications = {
       journal: "Under Review"
     },
     {
-      title: ". Integrated multi-data approach for reconstruction of Triloknath Glacier evolution since the Little Ice Age: geomorphic controls and climate response, Western Himalaya.",
+      title: "Integrated multi-data approach for reconstruction of Triloknath Glacier evolution since the Little Ice Age: geomorphic controls and climate response, Western Himalaya.",
       authors: "Ahmed, I., Sharma, P., Lal, D, Pandey, P., et al. ",
       journal: "Under Review"
     },
