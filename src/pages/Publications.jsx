@@ -9,6 +9,13 @@ const publications = {
       year: 2026,
       url: "https://www.sciencedirect.com/science/article/abs/pii/S0048969725029572"
     },
+     {
+      title: "ntegrated dendrochemical analyses for reconstructing historical trace elemental pollution in Asia: a systematic review",
+      authors: "Balraju, W., Shekhar, M., Pandey, P., Lal, D., Dhyani, R., Bhattacharyya, A., Sharma, A.",
+      journal: "Physics and Chemistry of the Earth, Parts A/B/C",
+      year: 2026,
+      url: "https://doi.org/10.1016/j.pce.2026.104523"
+    },
     {
       title: "Forest-stand structure and treeline dynamics of Himalayan Fir over the last four centuries in Kashmir, western Himalaya",
       authors: "Jain S., Chinthala B.D., Ranhotra P.S., Pandey P., Shekhar M., Grießinger J., Joshi R., Hamid M., Dar F.A., Shafee F., Khuroo A.A., Singh C.P., Bajpai R., Bräuning A.",
@@ -47,8 +54,13 @@ const publications = {
   ],
   underReview: [
     {
-      title: "Early Holocene latitudinal variations in Monsoon–Westerly dynamics from the Northwest Himalaya. Under review.",
+      title: "Early Holocene latitudinal variations in Monsoon–Westerly dynamics from the Northwest Himalaya.",
       authors: "Nag, D., Pandey, P., Verma, S., et al. ",
+      journal: "Under Review"
+    },
+    {
+      title: ". Integrated multi-data approach for reconstruction of Triloknath Glacier evolution since the Little Ice Age: geomorphic controls and climate response, Western Himalaya.",
+      authors: "Ahmed, I., Sharma, P., Lal, D, Pandey, P., et al. ",
       journal: "Under Review"
     },
   ],
